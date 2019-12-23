@@ -27,3 +27,5 @@ var questions = [
     answer: "// this is a comment"
   }
 ];
+
+console.log(questions);
