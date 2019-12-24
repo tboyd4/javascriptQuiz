@@ -12,8 +12,8 @@ var questions = [
     answer: "<script>"
   },
   {
-    title: "The external JavaScript file must contain <script> tag. True or False?",
-    choices: ["True", "False"],
+    title: "In the file name script.js, what does the js stand for?",
+    choices: ["John Smith", "Java Script", "Jelly Sandwhich", "Just Stop"],
     answer: "True"
   },
   {
