@@ -40,7 +40,7 @@ function quizTextStart () {
 
 
 
-// click event listeners for the four answers
+// click event listeners for the four answers. Compares user choice to real answer
 
 function activateListeners (index) {
 
