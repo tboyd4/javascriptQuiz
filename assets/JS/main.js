@@ -17,49 +17,64 @@ let getQuestion = document.querySelector('#question-text');
 
 function startQuiz () {
     console.log('now I am really here');
-    quizText();
+    quizTextStart();
+
 }
 
 // Function to reassign quiz text to reflect question
 
-function quizText () {
+function quizTextStart () {
+    
     getQuestion.textContent = questions[0].title;
     getChoiceA.textContent = questions[0].choices[0];
     getChoiceB.textContent = questions[0].choices[1];
     getChoiceC.textContent = questions[0].choices[2];
     getChoiceD.textContent = questions[0].choices[3];
+
+    activateListeners('0');
+
 }
+
+
+
+
+
 
 // click event listeners for the four answers
 
-getChoiceA.addEventListener("click", function () {
-    if (getChoiceA.textContent === questions[0].answer) {
-        console.log('answer is correct');
-    } else {
-        console.log('answer is not correct');
-    };
-});
-getChoiceB.addEventListener("click", function () {
-    if (getChoiceB.textContent === questions[0].answer) {
-        console.log('answer is correct');
-    } else {
-        console.log('answer is not correct');
-    };
-});
-getChoiceC.addEventListener("click", function () {
-    if (getChoiceC.textContent === questions[0].answer) {
-        console.log('answer is correct');
-    } else {
-        console.log('answer is not correct');
-    };
-});
-getChoiceD.addEventListener("click", function () {
-    if (getChoiceD.textContent === questions[0].answer) {
-        console.log('answer is correct');
-    } else {
-        console.log('answer is not correct');
-    };
-});
+function activateListeners (index) {
+
+    getChoiceA.addEventListener("click", function () {
+        if (getChoiceA.textContent === questions[index].answer) {
+            console.log('answer is correct');
+        } else {
+            console.log('answer is not correct');
+        };
+    });
+    getChoiceB.addEventListener("click", function () {
+        if (getChoiceB.textContent === questions[index].answer) {
+            console.log('answer is correct');
+        } else {
+            console.log('answer is not correct');
+        };
+    });
+    getChoiceC.addEventListener("click", function () {
+        if (getChoiceC.textContent === questions[index].answer) {
+            console.log('answer is correct');
+        } else {
+            console.log('answer is not correct');
+        };
+    });
+    getChoiceD.addEventListener("click", function () {
+        if (getChoiceD.textContent === questions[index].answer) {
+            console.log('answer is correct');
+        } else {
+            console.log('answer is not correct');
+        };
+    });
+}
+
+
 
 
 
