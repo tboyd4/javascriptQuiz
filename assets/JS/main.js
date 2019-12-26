@@ -31,7 +31,7 @@ function quizTextStart () {
     getChoiceC.textContent = questions[0].choices[2];
     getChoiceD.textContent = questions[0].choices[3];
 
-    activateListeners('0');
+    activateListeners(0);
 
 }
 
