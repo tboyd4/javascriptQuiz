@@ -30,6 +30,37 @@ function quizText () {
     getChoiceD.textContent = questions[0].choices[3];
 }
 
+// click event listeners for the four answers
+
+getChoiceA.addEventListener("click", function () {
+    if (getChoiceA.textContent === questions[0].answer) {
+        console.log('answer is correct');
+    } else {
+        console.log('answer is not correct');
+    };
+});
+getChoiceB.addEventListener("click", function () {
+    if (getChoiceB.textContent === questions[0].answer) {
+        console.log('answer is correct');
+    } else {
+        console.log('answer is not correct');
+    };
+});
+getChoiceC.addEventListener("click", function () {
+    if (getChoiceC.textContent === questions[0].answer) {
+        console.log('answer is correct');
+    } else {
+        console.log('answer is not correct');
+    };
+});
+getChoiceD.addEventListener("click", function () {
+    if (getChoiceD.textContent === questions[0].answer) {
+        console.log('answer is correct');
+    } else {
+        console.log('answer is not correct');
+    };
+});
+
 
 
 
