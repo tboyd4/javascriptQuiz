@@ -23,6 +23,20 @@ function startQuiz() {
   quizTextStart(firstQuestion);
 }
 
+// This will be the timer
+
+var timeleft = 75;
+var downloadTimer = setInterval(function(){
+  document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+  timeleft -= 1;
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("timer").innerHTML = "Finished"
+  }
+}, 1000);
+
+
+
 // This function should change to the next question
 
 function nextQuestion() {
