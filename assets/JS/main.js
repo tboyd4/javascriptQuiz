@@ -23,28 +23,27 @@ function startQuiz() {
   quizTextStart(firstQuestion);
 }
 
-// Timer being displayed for user. 
+// Timer being displayed for user.
 
 var timeleft = 75;
-var downloadTimer = setInterval(function(){
+var downloadTimer = setInterval(function() {
   document.querySelector("#timer").innerHTML = timeleft + " seconds remaining";
   timeleft -= 1;
-  if(timeleft <= 0){
+  if (timeleft <= 0) {
     clearInterval(downloadTimer);
-    document.querySelector("#timer").innerHTML = "Finished"
+    document.querySelector("#timer").innerHTML = "Finished";
   }
 }, 1000);
-
-
 
 // This function should change to the next question
 
 function nextQuestion() {
-    firstQuestion = firstQuestion + 1;
+  // first question actually represents the next question. I just haven't changed the name yet
+  firstQuestion = firstQuestion + 1;
 
   if (firstQuestion === 5) {
     endTiming = timeleft;
-    console.log(endTiming);  
+    console.log(endTiming);
     getQuestion.textContent = "Quiz is Over";
     getChoiceA.textContent = "";
     getChoiceB.textContent = "";
@@ -117,29 +116,73 @@ getChoiceD.addEventListener("click", function(event) {
 
 let userInit;
 let userScore = 0;
-function endQuiz () {     // This needs to get final score, display final score, and give option to store in local storage
-    if (endTiming > 65) {
-        userScore = userScore + 500;
-        alert("You scored a " + userScore + ", which is a perfect score!" );
-        userInit = prompt("Please enter your initials, and we'll save your score for you!");
-    } else if (endTiming < 65 && endTiming > 50) {
-        userScore = userScore + 400;
-        alert("You scored a " + userScore + ", which is a really solid score. GG bro." );
-        userInit = prompt("Please enter your initials, and we'll save your score for you!");
-    } else if (endTiming < 50 && endTiming > 35) {
-        userScore = userScore + 300;
-        alert("You scored a " + userScore + ", which is pretty good, but you should keep practicing" );
-        userInit = prompt("Please enter your initials, and we'll save your score for you!");
-    } else if (endTiming > 35 && endTiming > 20) {
-        userScore = userScore + 200;
-        alert("You scored a " + userScore + ", not gonna lie, this wasn't really fantastic" );
-        userInit = prompt("Please enter your initials, and we'll save your score for you!");
-    } else {
-        userScore = userScore + 100;
-        alert("You scored a " + userScore + ", which means you are the Miami Dolphins of Programming" );
-        userInit = prompt("Please enter your initials, and we'll save your score for you!");
-    }
-    localStorage.setItem('initals', userInit);
-    localStorage.setItem('score', userScore);
-
+function endQuiz() {
+  // This needs to get final score, display final score, and give option to store in local storage
+  if (endTiming > 65) {
+    userScore = userScore + 500;
+    alert("You scored a " + userScore + ", which is a perfect score!");
+    userInit = prompt(
+      "Please enter your initials, and we'll save your score for you!"
+    );
+  } else if (endTiming < 65 && endTiming > 50) {
+    userScore = userScore + 400;
+    alert(
+      "You scored a " + userScore + ", which is a really solid score. GG bro."
+    );
+    userInit = prompt(
+      "Please enter your initials, and we'll save your score for you!"
+    );
+  } else if (endTiming < 50 && endTiming > 35) {
+    userScore = userScore + 300;
+    alert(
+      "You scored a " +
+        userScore +
+        ", which is pretty good, but you should keep practicing"
+    );
+    userInit = prompt(
+      "Please enter your initials, and we'll save your score for you!"
+    );
+  } else if (endTiming > 35 && endTiming > 20) {
+    userScore = userScore + 200;
+    alert(
+      "You scored a " +
+        userScore +
+        ", not gonna lie, this wasn't really fantastic"
+    );
+    userInit = prompt(
+      "Please enter your initials, and we'll save your score for you!"
+    );
+  } else {
+    userScore = userScore + 100;
+    alert(
+      "You scored a " +
+        userScore +
+        ", which means you are the Miami Dolphins of Programming"
+    );
+    userInit = prompt(
+      "Please enter your initials, and we'll save your score for you!"
+    );
+  }
+  localStorage.setItem("initials", userInit);
+  localStorage.setItem("score", userScore);
 }
+
+// will update with new scores on click event
+
+//
+
+// THE BELOW CODE IS WHAT'S NOT WORKING. I CAN'T GET THE LOCAL STORAGE TO GET SHOWN TO THE HIGH SCORES PAGE
+
+//
+
+let lastUserInit;
+let lastUserScore;
+let newText;
+
+document.querySelector("#update-scores").addEventListener("click", function() {
+  lastUserInit = localStorage.getItem("initials");
+  lastUserScore = localStorage.getItem("score");
+  newText = "User " + lastUserInit + "recently scored a " + lastUserScore;
+  console.log(newText);
+  document.querySelector("#score-one").textContent = newText;
+});
