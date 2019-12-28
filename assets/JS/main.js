@@ -23,15 +23,15 @@ function startQuiz() {
   quizTextStart(firstQuestion);
 }
 
-// This will be the timer
+// Timer being displayed for user. 
 
 var timeleft = 75;
 var downloadTimer = setInterval(function(){
-  document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+  document.querySelector("#timer").innerHTML = timeleft + " seconds remaining";
   timeleft -= 1;
   if(timeleft <= 0){
     clearInterval(downloadTimer);
-    document.getElementById("timer").innerHTML = "Finished"
+    document.querySelector("#timer").innerHTML = "Finished"
   }
 }, 1000);
 
@@ -74,6 +74,7 @@ getChoiceA.addEventListener("click", function(event) {
     console.log("answer is correct");
   } else {
     console.log("answer is not correct");
+    timeleft = timeleft - 15;
   }
   nextQuestion();
 });
@@ -84,6 +85,7 @@ getChoiceB.addEventListener("click", function(event) {
     console.log("answer is correct");
   } else {
     console.log("answer is not correct");
+    timeleft = timeleft - 15;
   }
   nextQuestion();
 });
@@ -94,6 +96,7 @@ getChoiceC.addEventListener("click", function(event) {
     console.log("answer is correct");
   } else {
     console.log("answer is not correct");
+    timeleft = timeleft - 15;
   }
   nextQuestion();
 });
@@ -104,6 +107,7 @@ getChoiceD.addEventListener("click", function(event) {
     console.log("answer is correct");
   } else {
     console.log("answer is not correct");
+    timeleft = timeleft - 15;
   }
   nextQuestion();
 });
