@@ -43,11 +43,14 @@ function nextQuestion() {
     firstQuestion = firstQuestion + 1;
 
   if (firstQuestion === 5) {
+    endTiming = timeleft;
+    console.log(endTiming);  
     getQuestion.textContent = "Quiz is Over";
     getChoiceA.textContent = "";
     getChoiceB.textContent = "";
     getChoiceC.textContent = "";
     getChoiceD.textContent = "";
+    endQuiz(); // this functions runs our end of quiz stuff (getting score, asking for initials, storing in local storage)
   } else {
     quizTextStart(firstQuestion);
   }
@@ -111,3 +114,24 @@ getChoiceD.addEventListener("click", function(event) {
   }
   nextQuestion();
 });
+
+
+let userScore = 0;
+function endQuiz () {     // This needs to get final score, display final score, and give option to store in local storage
+    if (endTiming > 65) {
+        userScore = userScore + 500;
+        alert("You scored a " + userScore + ", which is a perfect score!" );
+    } else if (endTiming < 65 && endTiming > 50) {
+        userScore = userScore + 400;
+        alert("You scored a " + userScore + ", which is a really solid score. GG bro." );
+    } else if (endTiming < 50 && endTiming > 35) {
+        userScore = userScore + 300;
+        alert("You scored a " + userScore + ", which is pretty good, but you should keep practicing" );
+    } else if (endTiming > 35 && endTiming > 20) {
+        userScore = userScore + 200;
+        alert("You scored a " + userScore + ", not gonna lie, this wasn't really fantastic" );
+    } else {
+        userScore = userScore + 100;
+        alert("You scored a " + userScore + ", which means you are the Miami Dolphins of Programming" );
+    }
+}
