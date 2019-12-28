@@ -14,7 +14,7 @@ var questions = [
   {
     title: "In the file name script.js, what does the js stand for?",
     choices: ["John Smith", "Java Script", "Jelly Sandwhich", "Just Stop"],
-    answer: "True"
+    answer: "Java Script"
   },
   {
     title: "How is the function called in JavaScript?",

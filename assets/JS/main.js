@@ -3,79 +3,93 @@
 //grabbing important parts of html through DOM
 
 // selecting all buttons
-let getStart = document.querySelector('#btn-start-quiz');
-let getChoiceA = document.querySelector('#choice-A');
-let getChoiceB= document.querySelector('#choice-B');
-let getChoiceC = document.querySelector('#choice-C');
-let getChoiceD = document.querySelector('#choice-D');
+let getStart = document.querySelector("#btn-start-quiz");
+let getChoiceA = document.querySelector("#choice-A");
+let getChoiceB = document.querySelector("#choice-B");
+let getChoiceC = document.querySelector("#choice-C");
+let getChoiceD = document.querySelector("#choice-D");
 
 //selecting question text area
-let getQuestion = document.querySelector('#question-text');
-
+let getQuestion = document.querySelector("#question-text");
 
 // The quiz will begin upon the click of the start button
 
-function startQuiz () {
-    console.log('now I am really here');
-    quizTextStart();
+let firstQuestion = 0; // this will help us cycle questions
 
+function startQuiz() {
+  console.log("now I am really here");
+  console.log(firstQuestion);
+
+  quizTextStart(firstQuestion);
+}
+
+// This function should change to the next question
+
+function nextQuestion() {
+    firstQuestion = firstQuestion + 1;
+
+  if (firstQuestion === 5) {
+    getQuestion.textContent = "Quiz is Over";
+    getChoiceA.textContent = "";
+    getChoiceB.textContent = "";
+    getChoiceC.textContent = "";
+    getChoiceD.textContent = "";
+  } else {
+    quizTextStart(firstQuestion);
+  }
 }
 
 // Function to reassign quiz text to reflect question
 
-function quizTextStart () {
-    
-    getQuestion.textContent = questions[0].title;
-    getChoiceA.textContent = questions[0].choices[0];
-    getChoiceB.textContent = questions[0].choices[1];
-    getChoiceC.textContent = questions[0].choices[2];
-    getChoiceD.textContent = questions[0].choices[3];
+function quizTextStart(i) {
+  console.log(firstQuestion);
 
-    activateListeners(0);
-
+  getQuestion.textContent = questions[i].title;
+  getChoiceA.textContent = questions[i].choices[0];
+  getChoiceB.textContent = questions[i].choices[1];
+  getChoiceC.textContent = questions[i].choices[2];
+  getChoiceD.textContent = questions[i].choices[3];
 }
-
-
-
-
-
 
 // click event listeners for the four answers. Compares user choice to real answer
 
-function activateListeners (index) {
-
-    getChoiceA.addEventListener("click", function () {
-        if (getChoiceA.textContent === questions[index].answer) {
-            console.log('answer is correct');
-        } else {
-            console.log('answer is not correct');
-        };
-    });
-    getChoiceB.addEventListener("click", function () {
-        if (getChoiceB.textContent === questions[index].answer) {
-            console.log('answer is correct');
-        } else {
-            console.log('answer is not correct');
-        };
-    });
-    getChoiceC.addEventListener("click", function () {
-        if (getChoiceC.textContent === questions[index].answer) {
-            console.log('answer is correct');
-        } else {
-            console.log('answer is not correct');
-        };
-    });
-    getChoiceD.addEventListener("click", function () {
-        if (getChoiceD.textContent === questions[index].answer) {
-            console.log('answer is correct');
-        } else {
-            console.log('answer is not correct');
-        };
-    });
-}
-
-
-
-
-
-
+getChoiceA.addEventListener("click", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (getChoiceA.textContent === questions[firstQuestion].answer) {
+    console.log("answer is correct");
+  } else {
+    console.log("answer is not correct");
+  }
+  nextQuestion();
+});
+getChoiceB.addEventListener("click", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (getChoiceB.textContent === questions[firstQuestion].answer) {
+    console.log("answer is correct");
+  } else {
+    console.log("answer is not correct");
+  }
+  nextQuestion();
+});
+getChoiceC.addEventListener("click", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (getChoiceC.textContent === questions[firstQuestion].answer) {
+    console.log("answer is correct");
+  } else {
+    console.log("answer is not correct");
+  }
+  nextQuestion();
+});
+getChoiceD.addEventListener("click", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (getChoiceD.textContent === questions[firstQuestion].answer) {
+    console.log("answer is correct");
+  } else {
+    console.log("answer is not correct");
+  }
+  nextQuestion();
+});
