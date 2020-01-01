@@ -15,25 +15,26 @@ let getQuestion = document.querySelector("#question-text");
 // The quiz will begin upon the click of the start button
 
 let firstQuestion = 0; // this will help us cycle questions
+let timeleft;
 
 function startQuiz() {
   console.log("now I am really here");
   console.log(firstQuestion);
 
   quizTextStart(firstQuestion);
+
+  // Timer being displayed for user.
+  timeleft = 75;
+  var downloadTimer = setInterval(function() {
+    document.querySelector("#timer").innerHTML =
+      timeleft + " seconds remaining";
+    timeleft -= 1;
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.querySelector("#timer").innerHTML = "Finished";
+    }
+  }, 1000);
 }
-
-// Timer being displayed for user.
-
-var timeleft = 75;
-var downloadTimer = setInterval(function() {
-  document.querySelector("#timer").innerHTML = timeleft + " seconds remaining";
-  timeleft -= 1;
-  if (timeleft <= 0) {
-    clearInterval(downloadTimer);
-    document.querySelector("#timer").innerHTML = "Finished";
-  }
-}, 1000);
 
 // This function should change to the next question
 
@@ -167,22 +168,4 @@ function endQuiz() {
   localStorage.setItem("score", userScore);
 }
 
-// will update with new scores on click event
 
-//
-
-// THE BELOW CODE IS WHAT'S NOT WORKING. I CAN'T GET THE LOCAL STORAGE TO GET SHOWN TO THE HIGH SCORES PAGE
-
-//
-
-let lastUserInit;
-let lastUserScore;
-let newText;
-
-document.querySelector("#update-scores").addEventListener("click", function() {
-  lastUserInit = localStorage.getItem("initials");
-  lastUserScore = localStorage.getItem("score");
-  newText = "User " + lastUserInit + "recently scored a " + lastUserScore;
-  console.log(newText);
-  document.querySelector("#score-one").textContent = newText;
-});
