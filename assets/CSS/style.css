@@ -13,3 +13,10 @@
 #update-scores {
     margin: auto;
 }
+
+#score-text {
+    border: 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
