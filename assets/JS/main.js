@@ -171,11 +171,14 @@ function endQuiz() {
   location.replace("./index.html");
 
 
+  // This is not working. Trying to push scores into an array
   pushingThis = userInit + " " + userScore;
 
   scoreArray.push(pushingThis);
 
   localStorage.setItem("highscores", scoreArray);
+  
 }
+
 
 console.log(scoreArray);
