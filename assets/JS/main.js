@@ -117,6 +117,9 @@ getChoiceD.addEventListener("click", function(event) {
 
 let userInit;
 let userScore = 0;
+let scoreArray = [];
+let pushingThis;
+
 function endQuiz() {
   // This needs to get final score, display final score, and give option to store in local storage
   if (endTiming > 65) {
@@ -164,8 +167,15 @@ function endQuiz() {
       "Please enter your initials, and we'll save your score for you!"
     );
   }
-  localStorage.setItem("initials", userInit);
-  localStorage.setItem("score", userScore);
+
+  location.replace("./index.html");
+
+
+  pushingThis = userInit + " " + userScore;
+
+  scoreArray.push(pushingThis);
+
+  localStorage.setItem("highscores", scoreArray);
 }
 
-
+console.log(scoreArray);
