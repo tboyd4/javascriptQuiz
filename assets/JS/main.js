@@ -3,19 +3,19 @@
 //grabbing important parts of html through DOM
 
 // selecting all buttons
-let getStart = document.querySelector("#btn-start-quiz");
-let getChoiceA = document.querySelector("#choice-A");
-let getChoiceB = document.querySelector("#choice-B");
-let getChoiceC = document.querySelector("#choice-C");
-let getChoiceD = document.querySelector("#choice-D");
+var getStart = document.querySelector("#btn-start-quiz");
+var getChoiceA = document.querySelector("#choice-A");
+var getChoiceB = document.querySelector("#choice-B");
+var getChoiceC = document.querySelector("#choice-C");
+var getChoiceD = document.querySelector("#choice-D");
 
 //selecting question text area
-let getQuestion = document.querySelector("#question-text");
+var getQuestion = document.querySelector("#question-text");
 
 // The quiz will begin upon the click of the start button
 
-let firstQuestion = 0; // this will help us cycle questions
-let timeleft;
+var firstQuestion = 0; // this will help us cycle questions
+var timeleft;
 
 function startQuiz() {
   console.log("now I am really here");
@@ -115,10 +115,12 @@ getChoiceD.addEventListener("click", function(event) {
   nextQuestion();
 });
 
-let userInit;
-let userScore = 0;
+var userInit;
+var userScore = 0;
 
-let pushingThis;
+var scoreArray = [];
+
+var pushingThis;
 
 function endQuiz() {
   // This needs to get final score, display final score, and give option to store in local storage
@@ -161,7 +163,7 @@ function endQuiz() {
     alert(
       "You scored a " +
         userScore +
-        ", which means you are the Miami Dolphins of Programming"
+        ", which means you are the New York Jets of Programming"
     );
     userInit = prompt(
       "Please enter your initials, and we'll save your score for you!"
@@ -170,14 +172,15 @@ function endQuiz() {
 
   location.replace("./index.html");
 
-  // This is not working. Trying to push scores into an array.
-  // The array is currently rewriting itself every time the user takes the quiz
-
-  setStorage();
+  addStorage(userInit);
 }
 
-function setStorage() {
-  pushingThis = userInit + " " + userScore;
+// This function will put the scores into an array
+function addStorage(userInitials) {
+  
+  scoreArray = JSON.parse(localStorage.getItem("highscores"));
+
+  pushingThis = userInitials + " " + userScore;
 
   scoreArray.push(pushingThis);
 
