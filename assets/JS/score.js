@@ -1,11 +1,16 @@
-function showScores() {
+function updateScores() {
   // will update with new scores on click event
 
-  let showingScore = "";
-  let newText = "";
+  let updatingArray = JSON.parse(localStorage.getItem("highscores"));
 
-  console.log("im clicked");
-  showingScore = JSON.parse(localStorage.getItem("highscores"))
-  console.log(showingScore);
-  document.querySelector("#score-one").textContent = showingScore;
+  for (var i = 0; i < updatingArray.length; i++) {
+    let showingScore = [];
+    showingScore = JSON.parse(localStorage.getItem("highscores"))
+    let newEle = document.createElement("li");
+    newEle.setAttribute("class", "list-group-item");
+    newEle.setAttribute("id", "score-style");
+    newEle.textContent = showingScore[i];
+    document.querySelector("#dem-scores").appendChild(newEle);
+  }
+
 }

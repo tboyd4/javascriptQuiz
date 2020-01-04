@@ -20,3 +20,12 @@
     font-weight: bold;
     font-size: 24px;
 }
+
+#score-style {
+    text-align: center;
+    font-weight: bold;
+}
+
+#extra-padding {
+    padding: inherit;
+}
