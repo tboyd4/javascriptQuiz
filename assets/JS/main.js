@@ -117,9 +117,7 @@ getChoiceD.addEventListener("click", function(event) {
 
 var userInit;
 var userScore = 0;
-
 var scoreArray = [];
-
 var pushingThis;
 
 function endQuiz() {
@@ -177,7 +175,6 @@ function endQuiz() {
 
 // This function will put the scores into an array
 function addStorage(userInitials) {
-  
   scoreArray = JSON.parse(localStorage.getItem("highscores"));
 
   pushingThis = userInitials + " " + userScore;
