@@ -1,5 +1,5 @@
 # JavaScript Quiz
-    * This quiz will test the basic knowledge of the user through 5 multiple choice questions.
+    * This quiz will test the basic JavaScript knowledge of the user through 5 multiple choice questions.
 ## Instructions
     * The user will first come to a landing page where they can read in depth instructions
     * Upon pressing start, the user will be directed to a new page where the quiz will take place

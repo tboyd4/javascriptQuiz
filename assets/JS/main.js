@@ -9,6 +9,8 @@ var getChoiceB = document.querySelector("#choice-B");
 var getChoiceC = document.querySelector("#choice-C");
 var getChoiceD = document.querySelector("#choice-D");
 
+console.log(getChoiceA);
+
 //selecting question text area
 var getQuestion = document.querySelector("#question-text");
 
@@ -69,7 +71,8 @@ function quizTextStart(i) {
 }
 
 // click event listeners for the four answers. Compares user choice to real answer
-
+console.log(typeof getChoiceA);
+console.log(getChoiceA);
 getChoiceA.addEventListener("click", function(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -170,12 +173,19 @@ function endQuiz() {
 
   location.replace("./index.html");
 
-  addStorage(userInit);
+  addStorage(userInit, userScore);
 }
 
-// This function will put the scores into an array
-function addStorage(userInitials) {
-  scoreArray = JSON.parse(localStorage.getItem("highscores"));
+// This function will put the scores into an array, and into local storage to be retrieved later
+
+function addStorage(userInitials, userScore) {
+  let scoreArrayString = localStorage.getItem("highscores");
+
+  if (scoreArrayString === null) {
+    scoreArrayString = "[]";
+  }
+
+  scoreArray = JSON.parse(scoreArrayString);
 
   pushingThis = userInitials + " " + userScore;
 
