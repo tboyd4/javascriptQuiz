@@ -14,6 +14,7 @@ let getQuestion = document.querySelector("#question-text");
 
 // The quiz will begin upon the click of the start button
 
+
 let firstQuestion = 0; // this will help us cycle questions
 let timeleft;
 
@@ -117,7 +118,7 @@ getChoiceD.addEventListener("click", function(event) {
 
 let userInit;
 let userScore = 0;
-let scoreArray = [];
+
 let pushingThis;
 
 function endQuiz() {
@@ -178,13 +179,12 @@ function endQuiz() {
 }
 
 function setStorage () {
+
   pushingThis = userInit + " " + userScore;
 
   scoreArray.push(pushingThis);
 
-  let recentIndex = scoreArray.length - 1
-
-  localStorage.setItem("highscores", JSON.stringify(scoreArray[recentIndex]));
+  localStorage.setItem("highscores", JSON.stringify(scoreArray));
 
   console.log(scoreArray);
 

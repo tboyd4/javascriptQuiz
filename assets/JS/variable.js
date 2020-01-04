@@ -1,0 +1,1 @@
+var scoreArray = new Array();
