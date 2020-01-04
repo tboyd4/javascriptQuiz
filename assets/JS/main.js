@@ -14,7 +14,6 @@ let getQuestion = document.querySelector("#question-text");
 
 // The quiz will begin upon the click of the start button
 
-
 let firstQuestion = 0; // this will help us cycle questions
 let timeleft;
 
@@ -171,16 +170,13 @@ function endQuiz() {
 
   location.replace("./index.html");
 
-
   // This is not working. Trying to push scores into an array.
   // The array is currently rewriting itself every time the user takes the quiz
 
   setStorage();
-  
 }
 
-function setStorage () {
-
+function setStorage() {
   pushingThis = userInit + " " + userScore;
 
   scoreArray.push(pushingThis);
@@ -188,8 +184,4 @@ function setStorage () {
   localStorage.setItem("highscores", JSON.stringify(scoreArray));
 
   console.log(scoreArray);
-
 }
-
-
-
