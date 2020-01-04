@@ -172,7 +172,8 @@ function endQuiz() {
   location.replace("./index.html");
 
 
-  // This is not working. Trying to push scores into an array
+  // This is not working. Trying to push scores into an array.
+  // The array is currently rewriting itself every time the user takes the quiz
 
   setStorage();
   
