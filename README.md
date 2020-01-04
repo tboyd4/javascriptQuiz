@@ -13,7 +13,7 @@
     (https://tboyd4.github.io/javascriptQuiz/ "Deployed Application")
 
 
-![](./assets/images/ss1)
+
 
 
 

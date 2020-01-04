@@ -172,13 +172,23 @@ function endQuiz() {
 
 
   // This is not working. Trying to push scores into an array
+
+  setStorage();
+  
+}
+
+function setStorage () {
   pushingThis = userInit + " " + userScore;
 
   scoreArray.push(pushingThis);
 
-  localStorage.setItem("highscores", scoreArray);
-  
+  let recentIndex = scoreArray.length - 1
+
+  localStorage.setItem("highscores", JSON.stringify(scoreArray[recentIndex]));
+
+  console.log(scoreArray);
+
 }
 
 
-console.log(scoreArray);
+

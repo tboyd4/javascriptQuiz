@@ -1,14 +1,11 @@
 function showScores() {
   // will update with new scores on click event
 
-  let lastUserInit = "";
-  let lastUserScore = "";
+  let showingScore = "";
   let newText = "";
 
   console.log("im clicked");
-  lastUserInit = localStorage.getItem("initials");
-  lastUserScore = localStorage.getItem("score");
-  newText = "User " + lastUserInit + " scored a " + lastUserScore;
-  console.log(newText);
-  document.querySelector("#score-one").textContent = newText;
+  showingScore = JSON.parse(localStorage.getItem("highscores"))
+  console.log(showingScore);
+  document.querySelector("#score-one").textContent = showingScore;
 }
